@@ -15,9 +15,6 @@ function Navbar() {
             <MinimizeWindows />
             <TimeDateWidget />
             <div id="language">{navigator.language}</div>
-            
-
-
         </div>
     </nav>
     )

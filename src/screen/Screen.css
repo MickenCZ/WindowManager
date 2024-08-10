@@ -1,5 +1,21 @@
 #screen {
     width: 100vw;
     height: 93vh;
-    border: 1px solid black;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover; /* Crops sides if needed */
+}
+
+
+@media (min-width: 1921px) {
+    #screen {
+        background-image: url('desktop-1440p.webp');
+    }
+}
+
+
+@media (max-width: 1920px) {
+    #screen {
+        background-image: url('desktop-1080p.webp');
+    }
 }
