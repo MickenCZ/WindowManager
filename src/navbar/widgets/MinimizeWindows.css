@@ -1,0 +1,22 @@
+#minimizeWindows {
+    padding-right:4px;
+    height: 100%;
+    width: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#minimizeWindowsButton {
+    border-radius: 10%;
+    height: 35%;
+    width: 0.8px;
+}
+
+#minimizeWindows:hover #minimizeWindowsButton {
+    background-color: rgb(184, 184, 184);
+}
+
+#minimizeWindows:active #minimizeWindowsButton {
+    background-color: rgb(108, 108, 108);
+}

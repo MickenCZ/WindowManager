@@ -1,0 +1,33 @@
+.navIconContainer {
+    padding-top:0.6vh;
+    padding-bottom:0.6vh;
+    margin-top:0.4vh;
+    margin-bottom: 0.4vh;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 15%;
+}
+
+.navIconContainer:hover {
+    background-color: #34373b;
+}
+
+.navIcon {
+    height: 4vh;
+    width: 4vh;
+    outline: none;  
+    transition: transform 0.2s ease-in-out;
+}
+
+.navIcon:focus {
+    animation: squish 0.2s ease-in-out;
+}
+
+@keyframes squish {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0.65);
+    }
+  }
