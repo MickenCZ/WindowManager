@@ -1,6 +1,6 @@
 import './App.css'
 import Navbar from './navbar/Navbar'
-import Screen from './screen/Screen'
+import Screen from './screen/WindowManager'
 
 function App() {
 

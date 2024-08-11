@@ -1,16 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Window.css';
 
-interface Position {
+type Position = {
   x: number
   y: number
 }
 
-function Window() {
+type tProps = {
+  id: number,
+  highestZIndex: number,
+  bringToFront: () => void
+}
+
+function Window({id, highestZIndex, bringToFront}: tProps) {
     const windowRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false)
     const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
     const [offset, setOffset] = useState<Position>({ x: 0, y: 0 })
+    const [isFullScreen, setIsFullScreen] = useState<boolean>(false)
+    const [zIndex, setZIndex] = useState(id);
 
     useEffect(() => { // Functions are inside of useEffect to avoid changing dependencies of useEffect on every render.
         const handleMouseMove = (e: MouseEvent) => {
@@ -49,24 +57,30 @@ function Window() {
     }, [isDragging, offset])
 
     const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (windowRef.current) {
+        // This means that you can only move if you click the ref div directly, not its children
+        if (windowRef.current && windowRef.current == e.target) {
             const rect = windowRef.current.getBoundingClientRect()
             setOffset({
                 x: e.clientX - rect.left,
                 y: e.clientY - rect.top,
             })
             setIsDragging(true)
+            // bringToFront increases highest global z-index, setZIndex sets it
+            bringToFront()
+            setZIndex(highestZIndex)
         }
     }
 
   return (
-    <div
-      ref={windowRef}
-      className="window"
-      onMouseDown={handleMouseDown}
-      style={{ left: position.x, top: position.y}}
-    >
-      Drag Me
+    <div className="window" style={{ left: position.x, top: position.y, zIndex: zIndex}}>
+      <div className="windowControls" ref={windowRef} onMouseDown={handleMouseDown}>
+          <img src="todesktop.svg" alt="Minimize" className="windowControlIcon" title='Minimize' />
+          <img src={isFullScreen ? "minimize.svg" : "maximize.svg"} alt="Maximize" className="windowControlIcon" title='Maximize' />
+          <img src="close.svg" alt="Close" className="windowControlIcon" id="close" title='Close' />
+      </div>
+      <div className="windowContent">
+        <iframe src='https://onlinenotepad.org/notepad' width={600} height={500}></iframe>
+      </div>
     </div>
   )
 }

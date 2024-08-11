@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body { /*Hide scrollbars when dragging windows*/
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
