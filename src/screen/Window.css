@@ -1,0 +1,8 @@
+.window {
+    background-color: red;
+    width: 192px;
+    height: 108px;
+    position: absolute;
+    z-index: 2;
+    /* Position HAS TO be absolute for dragging to work */
+}

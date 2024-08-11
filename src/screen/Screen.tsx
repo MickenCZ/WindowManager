@@ -1,9 +1,10 @@
 import "./Screen.css"
+import Window from "./Window"
 
 function Screen() {
     return (
     <main id="screen">
-        screen
+        <Window />
     </main>
     )
 }
