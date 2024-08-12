@@ -3,11 +3,10 @@ import "./NavbarIcon.css"
 
 type tProps = {
     imgPath: string,
-    imgAlt: string,
-    tooltip: string,
+    appName: string,
 }
 
-function NavbarIcon({imgPath, imgAlt, tooltip}: tProps) {
+function NavbarIcon({imgPath, appName}: tProps) {
     const imgRef = useRef<HTMLImageElement>(null);
 
     // For: Squish animation finishes even out of focus
@@ -23,8 +22,8 @@ function NavbarIcon({imgPath, imgAlt, tooltip}: tProps) {
     }
 
     return (
-    <div className="navIconContainer" title={tooltip}>
-        <img src={imgPath} alt={imgAlt} className="navIcon" tabIndex={0} ref={imgRef} onClick={handleClick}/>
+    <div className="navIconContainer" title={appName}>
+        <img src={imgPath} alt={appName} className="navIcon" tabIndex={0} ref={imgRef} onClick={handleClick}/>
     </div>
     )
 }

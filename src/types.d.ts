@@ -1,11 +1,15 @@
 
-/* 
-* random id points to application object, which has an app name and children to be inserted in the window
-* (like an notepad application component or an iframe)
-*/
-export type tApplications = {
-    [key: string]: {
+export type tApplication = {
         appname: string,
-        children: Element
-    }
+        minimized: boolean,
+        open: boolean,
+        iconPath: string,
+        children: ReactElement,
 }
+
+
+/* 
+* It's important that each applications also knows its id, which is the array index
+*/
+
+export type tApplications = tApplication[]

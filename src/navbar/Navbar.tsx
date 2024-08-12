@@ -1,14 +1,20 @@
+import { tApplications } from "../types"
 import "./Navbar.css"
 import NavbarIcon from "./NavbarIcon"
 import MinimizeWindows from "./widgets/MinimizeWindows"
 import TimeDateWidget from "./widgets/TimeDateWidget"
 
-function Navbar() {
+function Navbar({applications}: {applications: tApplications}) {
     return (
     <nav id="navbar">
         <div id="navIcons">
-            <NavbarIcon imgPath="./logo.png" imgAlt="Macrohard doors logo" tooltip="Start"/>
-            <NavbarIcon imgPath="./notepad.png" imgAlt="My Notepad App" tooltip="Notepad App" />
+            <NavbarIcon imgPath="./logo.png" appName="Start" />
+            
+            { //Render icons for all the applications
+            applications.map(application => 
+                <NavbarIcon imgPath={application.iconPath} appName={application.appname} />
+            )}
+
         </div>
         <div id="status">
             <MinimizeWindows />
