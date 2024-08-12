@@ -6,6 +6,18 @@
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 15%;
+    position: relative;
+}
+
+.isActive::after {
+    content: "";
+    display: block;
+    width: 7px;
+    height: 2.8px;
+    background: rgb(148, 146, 146);
+    position: absolute;
+    border-radius: 38%;
+    left: calc(50% - 3.5px);
 }
 
 .navIconContainer:hover {

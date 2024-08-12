@@ -8,6 +8,7 @@ function getDefaultApplications(): tApplications {
             minimized: false,
             open: true,
             iconPath: "./notepad.png",
+            active: false,
             children:  <iframe src='https://onlinenotepad.org/notepad' width={600} height={500}></iframe>,
         },
     ]

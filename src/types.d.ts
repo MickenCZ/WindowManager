@@ -3,6 +3,7 @@ export type tApplication = {
         appname: string,
         minimized: boolean,
         open: boolean,
+        active: boolean,
         iconPath: string,
         children: ReactElement,
 }
