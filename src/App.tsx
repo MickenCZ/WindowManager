@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div id="main">
-      <Screen />
+      <Screen applications={applications} />
       <Navbar applications={applications} />
     </div>
   )

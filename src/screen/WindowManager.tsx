@@ -1,15 +1,17 @@
 import "./WindowManager.css"
 import Window from "./Window"
 import { useState } from "react"
+import { tApplications } from "../types"
 
-function WindowManager() {
+function WindowManager({applications}: {applications: tApplications}) {
     const [highestZIndex, setHighestZIndex] = useState(1)
     const bringToFront = () => {setHighestZIndex((prevIndex) => prevIndex + 1)}
 
     return (
     <main id="screen">
-        <Window highestZIndex={highestZIndex} bringToFront={bringToFront} id={1} />
-        <Window highestZIndex={highestZIndex} bringToFront={bringToFront} id={2} />
+        {applications.map((application, i) => 
+            <Window highestZIndex={highestZIndex} bringToFront={bringToFront} key={i} id={i} children={application.children} />
+        )}
     </main>
     )
 }

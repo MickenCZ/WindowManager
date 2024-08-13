@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, ReactElement } from 'react';
 import './Window.css';
 
 type Position = {
@@ -9,10 +9,11 @@ type Position = {
 type tProps = {
   id: number,
   highestZIndex: number,
-  bringToFront: () => void
+  bringToFront: () => void,
+  children: ReactElement
 }
 
-function Window({id, highestZIndex, bringToFront}: tProps) {
+function Window({id, highestZIndex, bringToFront, children}: tProps) {
     const windowRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false)
     const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
@@ -79,7 +80,7 @@ function Window({id, highestZIndex, bringToFront}: tProps) {
           <img src="close.svg" alt="Close" className="windowControlIcon" id="close" title='Close' />
       </div>
       <div className="windowContent">
-        <iframe src='https://onlinenotepad.org/notepad' width={600} height={500}></iframe>
+          {children}
       </div>
     </div>
   )
