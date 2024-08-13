@@ -38,10 +38,10 @@
     background-color: #474b51;
 }
 
-#close:hover {
+.close:hover {
     background-color: rgb(227, 0, 0);
 }
 
-#close:active {
+.close:active {
     background-color: rgb(174, 0, 0);
 }

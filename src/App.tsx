@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import Navbar from './navbar/Navbar'
-import Screen from './screen/WindowManager'
-import { tApplications, tApplication } from './types'
+import WindowManager from './screen/WindowManager'
+import { tApplications } from './types'
 import getDefaultApplications from './lib/getDefaultApplications'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div id="main">
-      <Screen applications={applications} />
+      <WindowManager applications={applications} setApplications={setApplications} />
       <Navbar applications={applications} />
     </div>
   )

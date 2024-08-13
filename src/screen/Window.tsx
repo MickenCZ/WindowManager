@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, ReactElement } from 'react';
 import './Window.css';
+import { tApplications } from '../types';
 
 type Position = {
   x: number
@@ -10,10 +11,11 @@ type tProps = {
   id: number,
   highestZIndex: number,
   bringToFront: () => void,
-  children: ReactElement
+  children: ReactElement,
+  setApplications: React.Dispatch<React.SetStateAction<tApplications>>,
 }
 
-function Window({id, highestZIndex, bringToFront, children}: tProps) {
+function Window({id, highestZIndex, bringToFront, children, setApplications}: tProps) {
     const windowRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false)
     const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
@@ -72,12 +74,20 @@ function Window({id, highestZIndex, bringToFront, children}: tProps) {
         }
     }
 
+    const handleClose = () => setApplications(prevState => {
+        const newState = [...prevState] //If I dont return new state and only copy existing state, it doesnt rerender
+        if (newState[id]) {
+          newState[id].open = false
+        }
+        return newState
+    })
+
   return (
     <div className="window" style={{ left: position.x, top: position.y, zIndex: zIndex}}>
       <div className="windowControls" ref={windowRef} onMouseDown={handleMouseDown}>
           <img src="todesktop.svg" alt="Minimize" className="windowControlIcon" title='Minimize' />
           <img src={isFullScreen ? "minimize.svg" : "maximize.svg"} alt="Maximize" className="windowControlIcon" title='Maximize' />
-          <img src="close.svg" alt="Close" className="windowControlIcon" id="close" title='Close' />
+          <img src="close.svg" alt="Close" className="windowControlIcon close" title='Close' onClick={handleClose} />
       </div>
       <div className="windowContent">
           {children}
