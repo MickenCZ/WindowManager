@@ -14,6 +14,7 @@ function WindowControls({id, isFullScreen}: tProps) {
         const newState = [...prevState] //If I dont return new state and only copy existing state, it doesnt rerender
         if (newState[id]) {
           newState[id].open = false
+          newState[id].active = false
         }
         return newState
     })

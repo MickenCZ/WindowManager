@@ -9,7 +9,7 @@ function Navbar({applications}: {applications: tApplications}) {
     <nav id="navbar">
         <div id="navIcons">
             {/*TODO: Make start menu its own component*/}
-            <NavbarIcon imgPath="./logo.png" appName="Start" isOpen={false} isActive={false} id={-1} />
+            <NavbarIcon imgPath="./logo.png" appName="Start" isOpen={false} isActive={false} id={-1} key={-1} />
             
             { //Render icons for all the applications
             applications.map((application, i) => 
