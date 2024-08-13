@@ -18,8 +18,17 @@ function WindowControls({id, isFullScreen}: tProps) {
         return newState
     })
 
+    const handleMinimize = () => setApplications(prevState => {
+        const newState = [...prevState]
+        if (newState[id]) {
+            newState[id].minimized = true
+            newState[id].active = false
+        }
+        return newState
+    })
+
     return (<>
-        <img src="todesktop.svg" alt="Minimize" className="windowControlIcon" title='Minimize' />
+          <img src="todesktop.svg" alt="Minimize" className="windowControlIcon" title='Minimize' onClick={handleMinimize} />
           <img src={isFullScreen ? "minimize.svg" : "maximize.svg"} alt="Maximize" className="windowControlIcon" title='Maximize' />
           <img src="close.svg" alt="Close" className="windowControlIcon close" title='Close' onClick={handleClose} />
     </>)
