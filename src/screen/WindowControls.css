@@ -1,0 +1,27 @@
+.windowControlIcon {
+    width: 4vh;
+    height: 4vh;
+    padding-top:0.6vh;
+    padding-bottom:0.6vh;
+    margin-top:0.5vh;
+    margin-bottom: 0.5vh;
+    border-radius: 5px;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
+
+.windowControlIcon:hover {
+    background-color: #34373b;
+}
+
+.windowControlIcon:active {
+    background-color: #474b51;
+}
+
+.close:hover {
+    background-color: rgb(227, 0, 0);
+}
+
+.close:active {
+    background-color: rgb(174, 0, 0);
+}
