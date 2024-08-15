@@ -1,11 +1,7 @@
 import React, { useState, useRef, useEffect, ReactElement } from 'react';
 import './Window.css';
 import WindowControls from './WindowControls';
-
-type Position = {
-  x: number
-  y: number
-}
+import { Position } from '../types';
 
 type tProps = {
   id: number,
@@ -18,6 +14,7 @@ type tProps = {
 function Window({id, highestZIndex, bringToFront, hide, children}: tProps) {
     const windowRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false)
+    const [size, setSize] = useState({width: 500, height: 300})
     const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
     const [offset, setOffset] = useState<Position>({ x: 0, y: 0 })
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false)
@@ -75,9 +72,16 @@ function Window({id, highestZIndex, bringToFront, hide, children}: tProps) {
     }
 
   return (
-    <div className="window" style={{ left: position.x, top: position.y, zIndex: zIndex, display: hide ? "none" : "block"}} >
+    <div className="window" style={{
+        left: position.x,
+        top: position.y,
+        zIndex: zIndex,
+        width: isFullScreen ? window.innerWidth : size.width,
+        height: isFullScreen ? window.innerHeight * 0.93 : size.height, //0.93 cause 0.07 is bottom navbar
+        display: hide ? "none" : "block",
+    }}>
       <div className="windowControls" ref={windowRef} onMouseDown={handleMouseDown}>
-          <WindowControls id={id} isFullScreen={isFullScreen} />
+          <WindowControls id={id} isFullScreen={isFullScreen} position={position} setPosition={setPosition} setIsFullscreen={setIsFullScreen} />
       </div>
       <div className="windowContent">
           {children}

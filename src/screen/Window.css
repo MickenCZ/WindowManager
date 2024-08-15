@@ -3,8 +3,6 @@
     position: absolute;
     /* Position HAS TO be absolute for dragging to work */
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
 }
 
 

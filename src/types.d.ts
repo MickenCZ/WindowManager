@@ -14,3 +14,8 @@ export type tApplication = {
 */
 
 export type tApplications = tApplication[]
+
+export type Position = {
+        x: number
+        y: number
+}
