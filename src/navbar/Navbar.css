@@ -1,6 +1,7 @@
 #navbar {
     background-color: #1c2127;
     display: flex;
+    z-index: 99999;
 }
 
 #navIcons {

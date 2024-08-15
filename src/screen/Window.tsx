@@ -27,11 +27,13 @@ function Window({id, highestZIndex, bringToFront, hide, children}: tProps) {
                 let newY = e.clientY - offset.y
                 
                 // To make sure window doesn't go off screen
+                
                 if (windowRef.current) {
+                    const navbarHeight = window.innerHeight * 0.08 //8vh
                     // window.innerHeight/Width gives the viewport size, we subtract the size of the window div,
                     // and add the offset so that it can go offscreen by the offset
                     const maxX = window.innerWidth - windowRef.current.offsetWidth + offset.x
-                    const maxY = window.innerHeight - windowRef.current.offsetHeight + offset.y
+                    const maxY = window.innerHeight - windowRef.current.offsetHeight + offset.y - navbarHeight
                     // Limits the values to maximum and minimum
                     if (newX < -offset.x) {newX = -offset.x}
                     if (newY < -offset.y) {newY = -offset.y}
