@@ -11,7 +11,13 @@ function WindowManager({applications}: {applications: tApplications}) {
     <main id="screen">
         {applications.map((application, i) => {
             if (application.open && !application.minimized) {
-                return <Window highestZIndex={highestZIndex} bringToFront={bringToFront} key={i} id={i} children={application.children} />
+                return <Window highestZIndex={highestZIndex} bringToFront={bringToFront} key={i} id={i} children={application.children} hide={false} />
+            } 
+            //Hide just hides it with css. While closing, we derender the component and destroy position data,
+            // while minimizing, we keep the component active, so that its position information is kept when again activated.
+
+            else if (application.open && application.minimized) {
+                return <Window highestZIndex={highestZIndex} bringToFront={bringToFront} key={i} id={i} children={application.children} hide={true} />
             }
         })}
     </main>

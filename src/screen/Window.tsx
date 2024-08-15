@@ -11,10 +11,11 @@ type tProps = {
   id: number,
   highestZIndex: number,
   bringToFront: () => void,
+  hide: boolean,
   children: ReactElement,
 }
 
-function Window({id, highestZIndex, bringToFront, children}: tProps) {
+function Window({id, highestZIndex, bringToFront, hide, children}: tProps) {
     const windowRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false)
     const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
@@ -74,7 +75,7 @@ function Window({id, highestZIndex, bringToFront, children}: tProps) {
     }
 
   return (
-    <div className="window" style={{ left: position.x, top: position.y, zIndex: zIndex}}>
+    <div className="window" style={{ left: position.x, top: position.y, zIndex: zIndex, display: hide ? "none" : "block"}} >
       <div className="windowControls" ref={windowRef} onMouseDown={handleMouseDown}>
           <WindowControls id={id} isFullScreen={isFullScreen} />
       </div>
