@@ -1,6 +1,7 @@
 import { tApplications } from "../types"
 import "./Navbar.css"
 import NavbarIcon from "./NavbarIcon"
+import StartMenuIcon from "./StartMenuIcon"
 import MinimizeWindows from "./widgets/MinimizeWindows"
 import TimeDateWidget from "./widgets/TimeDateWidget"
 
@@ -8,8 +9,7 @@ function Navbar({applications}: {applications: tApplications}) {
     return (
     <nav id="navbar">
         <div id="navIcons">
-            {/*TODO: Make start menu its own component*/}
-            <NavbarIcon imgPath="./logo.png" appName="Start" isOpen={false} isActive={false} id={-1} key={-1} />
+            <StartMenuIcon />
             
             { //Render icons for all the applications
             applications.map((application, i) => 
