@@ -29,9 +29,15 @@ function NavbarIcon({imgPath, appName, isOpen, isActive, id}: tProps) {
         setApplications(prevState => {
             const newState = [...prevState]
             if (newState[id]) {
-                newState[id].active = true
-                newState[id].minimized = false
-                newState[id].open = true
+                if (newState[id].active) {
+                    newState[id].active = false
+                    newState[id].minimized = true
+                }
+                else {
+                    newState[id].active = true
+                    newState[id].minimized = false
+                    newState[id].open = true
+                }
             }
             return newState
         })
