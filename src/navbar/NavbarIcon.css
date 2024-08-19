@@ -54,3 +54,31 @@
       transform: scale(0.65);
     }
   }
+
+  .dropupMenu {
+    position: absolute;
+    bottom: 100%; /* Show above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15%;
+    background-color: #3c4754;
+    color: white;
+    z-index: 9999;
+    display: none; 
+}
+
+
+.dropupOption {
+    padding: 8px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dropupOption:hover {
+    background-color: #576679;
+    border-radius: 15%;
+}
+
+.dropupMenu.activeDropUp {
+    display: block;
+}
