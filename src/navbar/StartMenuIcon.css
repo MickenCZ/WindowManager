@@ -45,6 +45,9 @@ dropup classes are from nacbaricon.css
 
 .appCardName {
     text-align: center;
+    word-wrap: break-word;  /* Allows breaking long words onto the next line */
+    word-break: break-word; /* Ensures long unbreakable words also wrap */
+    line-height: 1.2;       /* Adjusts the line height for better readability */
 }
 
 #startMenuTitle {

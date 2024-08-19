@@ -15,3 +15,10 @@
     border-top-right-radius: 10px;
     padding-right: 5px;
 }
+
+.windowContent {
+    height: calc(100% - 5vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,16 +1,54 @@
+import ChangeWallpaper from "../navbar/custom-apps/changeWallpaper"
 import { tApplications } from "../types"
 
 
 function getDefaultApplications(): tApplications {
     return [
         {
-            appname: "Note taking app",
+            appname: "Online Notepad",
             minimized: false,
-            open: true,
-            iconPath: "./notepad.png",
-            active: true,
-            children:  <h1>Hello World</h1>,
-            //<iframe src='https://onlinenotepad.org/notepad' width={600} height={500}></iframe>
+            open: false,
+            iconPath: "./notepad.ico",
+            active: false,
+            iFrameUrl: 'https://onlinenotepad.org/notepad',
+            customContent: null,
+        },
+        {
+            appname: "Bing search",
+            minimized: false,
+            open: false,
+            iconPath: "./bing.ico",
+            active: false, 
+            iFrameUrl: 'https://www.bing.com/search?q=search',
+            customContent: null,
+        },
+        {
+            appname: "Programiz JS editor",
+            minimized: false,
+            open: false,
+            iconPath: "./programiz.png",
+            active: false,
+            iFrameUrl: 'https://www.programiz.com/javascript/online-compiler/',
+            customContent: null,
+        },
+        {
+            appname: "Image viewer",
+            minimized: false,
+            open: false,
+            iconPath: "./imageviewer.ico",
+            active: false,
+            iFrameUrl: 'https://image-viewer.com/',
+            customContent: null,
+            
+        },
+        {
+            appname: "Change wallpaper",
+            minimized: false,
+            open: false,
+            iconPath: "./wallpaper.svg",
+            active: false,
+            iFrameUrl: null,
+            customContent: <ChangeWallpaper />,
         },
     ]
 }

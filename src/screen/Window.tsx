@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, ReactElement } from 'react';
+import React, { useState, useRef, useEffect, ReactNode } from 'react';
 import './Window.css';
 import WindowControls from './WindowControls';
 import { Position } from '../types';
@@ -8,14 +8,15 @@ type tProps = {
   highestZIndex: number,
   bringToFront: () => void,
   hide: boolean,
-  children: ReactElement,
+  iFrameUrl: string | null,
+  customContent: ReactNode | null
 }
 
-function Window({id, highestZIndex, bringToFront, hide, children}: tProps) {
+function Window({id, highestZIndex, bringToFront, hide, iFrameUrl, customContent}: tProps) {
     const windowRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false)
-    const [size, setSize] = useState({width: 500, height: 300})
-    const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
+    const [size, setSize] = useState({width: 600, height: 400})
+    const [position, setPosition] = useState<Position>({ x: 50, y: 30 })
     const [offset, setOffset] = useState<Position>({ x: 0, y: 0 })
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false)
     const [zIndex, setZIndex] = useState(id);
@@ -86,7 +87,8 @@ function Window({id, highestZIndex, bringToFront, hide, children}: tProps) {
           <WindowControls id={id} isFullScreen={isFullScreen} position={position} setPosition={setPosition} setIsFullscreen={setIsFullScreen} />
       </div>
       <div className="windowContent">
-          {children}
+          {iFrameUrl && <iframe src={iFrameUrl} width={isFullScreen ? window.innerWidth : size.width} height={isFullScreen ? window.innerHeight * 0.93 : size.height}></iframe>}
+          {customContent}
       </div>
     </div>
   )

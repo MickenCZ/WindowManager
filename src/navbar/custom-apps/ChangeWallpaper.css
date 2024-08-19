@@ -1,0 +1,84 @@
+#setWallpaperContainer {
+    width: 70%;
+    height: 70%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#setWallpaperContainer h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+#setWallpaperContainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#setWallpaperContainer label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+#setWallpaperContainer input[type="url"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#changeWallPaperButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#changeWallPaperButton:hover {
+    background-color: #45a049;
+}
+
+#changeWallPaperButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.4);
+}
+
+#revertWallPaperButton {
+    padding: 10px 20px;
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#revertWallPaperButton:hover {
+    background-color: #138496;
+}
+
+#revertWallPaperButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5);
+}

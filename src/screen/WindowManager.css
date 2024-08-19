@@ -8,14 +8,14 @@
 
 
 @media (min-width: 1921px) {
-    #screen {
+    .defaultWallpaper {
         background-image: url('desktop-1440p.webp');
     }
 }
 
 
 @media (max-width: 1920px) {
-    #screen {
+    .defaultWallpaper {
         background-image: url('desktop-1080p.webp');
     }
 }

@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 
 export type tApplication = {
         appname: string,
@@ -5,7 +6,8 @@ export type tApplication = {
         open: boolean,
         active: boolean,
         iconPath: string,
-        children: ReactElement,
+        iFrameUrl: string | null,
+        customContent: ReactNode | null,
 }
 
 
