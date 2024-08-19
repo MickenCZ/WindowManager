@@ -9,7 +9,7 @@ function Navbar({applications}: {applications: tApplications}) {
     return (
     <nav id="navbar">
         <div id="navIcons">
-            <StartMenuIcon />
+            <StartMenuIcon applications={applications} />
             
             { //Render icons for all the applications
             applications.map((application, i) => 
