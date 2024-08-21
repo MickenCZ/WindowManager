@@ -1,6 +1,6 @@
 import "./WindowManager.css"
 import Window from "./Window"
-import { createContext, Dispatch, SetStateAction, useState } from "react"
+import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react"
 import { tApplications } from "../types"
 
 export const SetCustomWallpaperContext = createContext<Dispatch<SetStateAction<string | false>>>(() => {})
@@ -9,6 +9,13 @@ function WindowManager({applications}: {applications: tApplications}) {
     const [highestZIndex, setHighestZIndex] = useState(1)
     const bringToFront = () => {setHighestZIndex((prevIndex) => prevIndex + 1)}
     const [customWallpaper, setCustomWallpaper] = useState<string | false>(false)
+
+    useEffect(() => {
+        const locallyStoredWallpaper = localStorage.getItem("wallpaper")
+        if (locallyStoredWallpaper !== null) {
+            setCustomWallpaper(locallyStoredWallpaper)
+        }
+    }, [])
 
     return (
     <main id="screen" className={customWallpaper ? undefined : "defaultWallpaper"} style={customWallpaper ? {backgroundImage: `url(${customWallpaper})`} : undefined}>
@@ -23,7 +30,7 @@ function WindowManager({applications}: {applications: tApplications}) {
             // while minimizing, we keep the component active, so that its position information is kept when again activated.
 
             else if (application.open && application.minimized) {
-                return (<SetCustomWallpaperContext.Provider value={setCustomWallpaper}  key={i}>
+                return (<SetCustomWallpaperContext.Provider value={setCustomWallpaper} key={i}>
                     <Window highestZIndex={highestZIndex} bringToFront={bringToFront} id={i} 
                     hide={true} customContent={application.customContent} iFrameUrl={application.iFrameUrl} />
                 </SetCustomWallpaperContext.Provider>)

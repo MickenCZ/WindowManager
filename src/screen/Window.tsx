@@ -15,7 +15,7 @@ type tProps = {
 function Window({id, highestZIndex, bringToFront, hide, iFrameUrl, customContent}: tProps) {
     const windowRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false)
-    const [size] = useState({width: 600, height: 400})
+    const [size] = useState({width: 800, height: 500})
     const [position, setPosition] = useState<Position>({ x: 50, y: 30 })
     const [offset, setOffset] = useState<Position>({ x: 0, y: 0 })
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false)
@@ -74,6 +74,17 @@ function Window({id, highestZIndex, bringToFront, hide, iFrameUrl, customContent
         }
     }
 
+    const InsideComponent = ({customContent}: {customContent: string | ReactNode}) => {
+        if (typeof customContent === 'string') {
+          return (
+            <div
+              dangerouslySetInnerHTML={{ __html: customContent }} //to render the html the user has given us
+            />
+          )
+        }
+        return <>{customContent}</>
+    }
+
   return (
     <div className="window" style={{
         left: position.x,
@@ -88,7 +99,7 @@ function Window({id, highestZIndex, bringToFront, hide, iFrameUrl, customContent
       </div>
       <div className="windowContent">
           {iFrameUrl && <iframe src={iFrameUrl} width={isFullScreen ? window.innerWidth : size.width} height={isFullScreen ? window.innerHeight * 0.93 : size.height}></iframe>}
-          {customContent}
+          <InsideComponent customContent={customContent} />
       </div>
     </div>
   )

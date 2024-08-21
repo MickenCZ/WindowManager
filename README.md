@@ -1,2 +1,4 @@
-# Window Manager Project
-Web UI Project of a Windows UI lookalike. Basically from scratch window manager. 
+# Window Manager
+This project features a window/application manager and a web user interface for a Windows-lookalike desktop environment. 
+It can open, close, maximize and minimize windows, it can move them, crash them all to desktop (bottom-right button just like in Windows) and it features a nice start menu to launch applications, along with widgets for time+date and language.
+It has a few preselected apps, such as a text editor, code editor, image viewer and a search engine, which are provided by external sources. If you don't like the beautiful provided wallpaper, there is also a custom app that allows you to change it, which also persists across page visits.

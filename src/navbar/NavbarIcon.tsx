@@ -40,6 +40,9 @@ function NavbarIcon({imgPath, appName, isOpen, isActive, id}: tProps) {
     }
 
     const handleClick = () => {
+        //Opening apps
+        toggleAppOpen(false)
+
         // For: Squish animation finishes even out of focus
         if (imgRef.current) {
             imgRef.current.focus();
@@ -49,9 +52,6 @@ function NavbarIcon({imgPath, appName, isOpen, isActive, id}: tProps) {
                 }
               }, 200);
         }
-
-        //Opening apps
-        toggleAppOpen(false)
     }
 
     const handleRightClick = (event: React.MouseEvent) => {

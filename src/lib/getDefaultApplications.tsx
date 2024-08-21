@@ -1,3 +1,4 @@
+import AddApp from "../navbar/custom-apps/AddApp"
 import ChangeWallpaper from "../navbar/custom-apps/ChangeWallpaper"
 import { tApplications } from "../types"
 
@@ -49,6 +50,15 @@ function getDefaultApplications(): tApplications {
             active: false,
             iFrameUrl: null,
             customContent: <ChangeWallpaper />,
+        },
+        {
+            appname: "Add app",
+            minimized: false,
+            open: false,
+            iconPath: "./addapp.svg",
+            active: false,
+            iFrameUrl: null,
+            customContent: <AddApp />
         },
     ]
 }

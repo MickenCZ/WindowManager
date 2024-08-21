@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction, useState } from 'react'
+import { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './navbar/Navbar'
 import WindowManager from './screen/WindowManager'
@@ -9,6 +9,13 @@ export const SetApplicationsContext = createContext<Dispatch<SetStateAction<tApp
 
 function App() {
   const [applications, setApplications] = useState<tApplications>(getDefaultApplications())
+
+  useEffect(() => {
+    const alreadySavedApps = localStorage.getItem("extraApplications")
+    if (alreadySavedApps !== null) {
+      setApplications(prevState => [...prevState, ...JSON.parse(alreadySavedApps)])
+    }
+  }, [])
 
   return (
     <div id="main">

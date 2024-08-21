@@ -17,7 +17,7 @@
 }
 
 .windowContent {
-    height: calc(100% - 5vh);
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
