@@ -19,7 +19,7 @@ function Window({id, highestZIndex, bringToFront, hide, iFrameUrl, customContent
     const [position, setPosition] = useState<Position>({ x: 50, y: 30 })
     const [offset, setOffset] = useState<Position>({ x: 0, y: 0 })
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false)
-    const [zIndex, setZIndex] = useState(id);
+    const [zIndex, setZIndex] = useState(id); //Every time you click a window, it has to be on top. So we just increment highest z-index in the entire app (highestZIndex prop)
 
     useEffect(() => { // Functions are inside of useEffect to avoid changing dependencies of useEffect on every render.
         const handleMouseMove = (e: MouseEvent) => {
