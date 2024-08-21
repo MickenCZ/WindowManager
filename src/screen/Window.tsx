@@ -15,7 +15,7 @@ type tProps = {
 function Window({id, highestZIndex, bringToFront, hide, iFrameUrl, customContent}: tProps) {
     const windowRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false)
-    const [size, setSize] = useState({width: 600, height: 400})
+    const [size] = useState({width: 600, height: 400})
     const [position, setPosition] = useState<Position>({ x: 50, y: 30 })
     const [offset, setOffset] = useState<Position>({ x: 0, y: 0 })
     const [isFullScreen, setIsFullScreen] = useState<boolean>(false)

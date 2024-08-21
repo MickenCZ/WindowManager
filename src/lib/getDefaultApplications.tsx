@@ -1,4 +1,4 @@
-import ChangeWallpaper from "../navbar/custom-apps/changeWallpaper"
+import ChangeWallpaper from "../navbar/custom-apps/ChangeWallpaper"
 import { tApplications } from "../types"
 
 
