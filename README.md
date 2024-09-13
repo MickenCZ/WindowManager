@@ -40,3 +40,8 @@ The advantage of adding apps this way and not through the gui is the easier Ifra
 ## A word about state management architecture of this project
 The App.tsx component holds the entire application state, which means that to make any changes to applications, including their open/minimized/active state, or to add new ones, one has to change state of App.tsx. This is the central-source-of-truth architecture. While it is typical for Redux, I have decided not to use it, as it's overkill, the useContext hook is absolutely fine here, in every file you want to change app state, just make use of the useContext hook and import the context from the App.tsx file, it's very convenient. 
 This state is then propagated (application state is prop-drilled, but application change uses context, because the prop-drilling depths are shallower for read operations than for write operations (setting state)) to both the window manager (main screen with windows) and Navbar (bottom navigation bar with apps). Both the windows and navbar icons are rendered through a map that is called on the application state array, so through react rerendering rules, the windows and navbar always update themselves to reflect latest state.
+
+## Video Showcase
+
+https://github.com/user-attachments/assets/612ebebf-f5ed-48ae-988e-ce4b8d03931f
+
